@@ -1,0 +1,22 @@
+{
+  "tasks": [
+    {
+      "id": "95",
+      "tarefa": "Estudar C",
+      "categoria": "faculdade",
+      "concluido": false
+    },
+    {
+      "id": "01d6",
+      "tarefa": "lavar a moto",
+      "categoria": "casa",
+      "concluido": false
+    },
+    {
+      "id": "4120",
+      "tarefa": "Fazer commit",
+      "categoria": "trabalho",
+      "concluido": true
+    }
+  ]
+}

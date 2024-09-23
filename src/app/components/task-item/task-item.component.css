@@ -1,0 +1,36 @@
+.task{
+    background: #f7f7f7;
+    margin: 15px;
+    cursor: pointer;
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 0 black;
+}
+
+.task.reminder{
+    border-left: 10px solid rgb(0, 255, 0);
+    box-shadow: 5px 5px 0 black;
+}
+
+.task h3{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#down{
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#duasx{
+    color: rgb(136, 136, 0);
+}
+
+@media(max-width: 600px)
+{
+    #down {
+        flex-direction: column;
+    }
+}

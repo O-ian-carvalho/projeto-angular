@@ -1,0 +1,53 @@
+@if(mostrarAddTarefa){
+    <app-button text="Fechar"  (btnClick)="AlteraVisualizacao(false)"></app-button>
+} @else
+{
+    <app-button text="Criar Tarefa"  (btnClick)="AlteraVisualizacao(true)"></app-button>
+}
+
+<form (ngSubmit)="onSubmit()" *ngIf="mostrarAddTarefa" class="add-form">
+    <div>
+
+      
+        <!-- <label for="text">Tarefa:</label>
+        <input type="text" name="text" class="form-control" placeholder="Adicionar tarefa" id="text"
+        [(ngModel)]= "tarefa"
+        /> -->
+
+        <mat-form-field appearance="fill" id="tarefainput">
+          <mat-label>Tarefa</mat-label>
+          <input matInput placeholder="Digite a tarefa" [(ngModel)]="tarefa"  name="tarefa">
+        </mat-form-field>
+
+        <!-- <div class="mb-4">
+            <label for="categoria" >Categoria:</label>
+            <select name="categoria" id="categoria" class="form-select" [(ngModel)]="categoria">
+                <option value="">Selecione uma categoria</option>
+                <option value="casa">Casa</option>
+                <option value="casa">Trabalho</option>
+                <option value="casa">Faculdade</option>
+                <option value="casa">Academia</option>
+                <option value="casa">Lazer</option>
+            </select>
+        </div> -->
+
+        <mat-form-field appearance="fill">
+          <mat-label>Categoria</mat-label>
+          <mat-select [(ngModel)]="categoria" name="categoria">
+            <mat-option value="casa">Casa</mat-option>
+            <mat-option value="trabalho">Trabalho</mat-option>
+            <mat-option value="faculdade">Faculdade</mat-option>
+            <mat-option value="academia">Academia</mat-option>
+            <mat-option value="lazer">Lazer</mat-option>
+
+          </mat-select>
+        </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="accent" type="submit">Adicionar Tarefa</button>
+</form>
+
+
+
+
+
