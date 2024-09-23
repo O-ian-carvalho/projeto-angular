@@ -7,24 +7,27 @@ import  { Tarefa } from "../../Tarefa";
   providedIn: 'root'
 })
 export class TaskService {
+  private apiUrl = "http://localhost:3000/tasks"; // URL da API onde as tarefas são gerenciadas.
 
-  private apiUrl = "http://localhost:3000/tasks";
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { } // Injeta o HttpClient no serviço.
 
-  getTasks() : Observable<Tarefa[]> {
-    return this.http.get<Tarefa[]>(this.apiUrl);
+  // Método para obter a lista de tarefas da API.
+  getTasks(): Observable<Tarefa[]> {
+    return this.http.get<Tarefa[]>(this.apiUrl); // Faz uma requisição GET e retorna um Observable de um array de tarefas.
   }
 
-  deleteTask(tarefa: Tarefa) : Observable<Tarefa>
-  {
-    return this.http.delete<Tarefa>(`${this.apiUrl}/${tarefa.id}`);
+  // Método para deletar uma tarefa específica.
+  deleteTask(tarefa: Tarefa): Observable<Tarefa> {
+    return this.http.delete<Tarefa>(`${this.apiUrl}/${tarefa.id}`); // Faz uma requisição DELETE para a API.
   }
 
-  updateTask(tarefa:Tarefa) : Observable<Tarefa>{
-    return this.http.put<Tarefa>(`${this.apiUrl}/${tarefa.id}`, tarefa);
+  // Método para atualizar uma tarefa existente.
+  updateTask(tarefa: Tarefa): Observable<Tarefa> {
+    return this.http.put<Tarefa>(`${this.apiUrl}/${tarefa.id}`, tarefa); // Faz uma requisição PUT para atualizar a tarefa na API.
   }
 
-  addTask(tarefa:Tarefa): Observable<Tarefa>{
-    return this.http.post<Tarefa>(`${this.apiUrl}`, tarefa)
+  // Método para adicionar uma nova tarefa.
+  addTask(tarefa: Tarefa): Observable<Tarefa> {
+    return this.http.post<Tarefa>(`${this.apiUrl}`, tarefa); // Faz uma requisição POST para adicionar uma nova tarefa à API.
   }
 }

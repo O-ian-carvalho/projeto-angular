@@ -12,10 +12,12 @@ import {MatButtonModule} from '@angular/material/button';
   styleUrl: './button.component.css'
 })
 export class ButtonComponent {
-  @Input() text: string ='';
-  @Input() color: string ='';
-  @Output() btnClick = new EventEmitter();
-  onClick(){
-    this.btnClick.emit();
+  @Input() text: string = ''; // Texto a ser exibido no botão.
+  @Input() color: string = ''; // Cor do botão (pode ser usada para estilos).
+  @Output() btnClick = new EventEmitter(); // Emite um evento quando o botão é clicado.
+
+  // Função chamada ao clicar no botão.
+  onClick() {
+    this.btnClick.emit(); // Emite o evento de clique.
   }
 }

@@ -22,43 +22,43 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   templateUrl: './add-task.component.html',
   styleUrl: './add-task.component.css'
 })
+
+
 export class AddTaskComponent {
 
-  @Output() onAddTask = new EventEmitter<Tarefa>();
+  @Output() onAddTask = new EventEmitter<Tarefa>(); // Emite um evento quando uma nova tarefa é adicionada.
 
-  tarefa:string = "";
-  categoria:string = "";
-  concluido: boolean =  false;
-  mostrarAddTarefa : boolean = false;
+  tarefa: string = ""; // Nome da tarefa.
+  categoria: string = ""; // Categoria da tarefa.
+  concluido: boolean = false; // Status de conclusão da tarefa.
+  mostrarAddTarefa: boolean = false; // Controla a visibilidade do formulário de adição de tarefa.
 
-  AlteraVisualizacao(valor : boolean)
-  {
+  // Função que altera a visibilidade do formulário de adição de tarefa.
+  AlteraVisualizacao(valor: boolean) {
     this.mostrarAddTarefa = valor;
   }
 
-  onSubmit()
-  {
-
-
-    if(!this.tarefa)
-    {
+  // Função chamada ao submeter o formulário.
+  onSubmit() {
+    // Valida se o campo tarefa está preenchido.
+    if (!this.tarefa) {
       alert("Adicione uma tarefa");
       return;
     }
 
+    // Cria um objeto representando a nova tarefa.
     const novaTarefa = {
       tarefa: this.tarefa,
       categoria: this.categoria,
       concluido: this.concluido
-    }
+    };
+
+    // Emite a nova tarefa para quem está ouvindo o evento.
     this.onAddTask.emit(novaTarefa);
 
+    // Reseta os campos do formulário.
     this.tarefa = "";
     this.categoria = "";
-    this.concluido =  false;
-
-
+    this.concluido = false;
   }
-
-  
 }
